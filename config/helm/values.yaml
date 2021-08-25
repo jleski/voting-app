@@ -1,5 +1,5 @@
 # Image registry with repository
-registry:  registry.gitlab.com/voting-application
+registry:  cr.alusta.cloud/demo
 
 # Version of the VotingApp among v1, v2 and v3
 version: v2

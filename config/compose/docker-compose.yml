@@ -1,5 +1,6 @@
 services:
   vote:
+    image: cr.alusta.cloud/demo/vote:latest
     build: ../../vote
     # use python rather than gunicorn for local dev
     command: python app.py
@@ -15,6 +16,7 @@ services:
       - back-tier
 
   vote-ui:
+    image: cr.alusta.cloud/demo/vote-ui:latest
     build: ../../vote-ui
     depends_on:
       vote:
@@ -28,6 +30,7 @@ services:
     restart: unless-stopped
 
   result:
+    image: cr.alusta.cloud/demo/result:latest
     build: ../../result
     # use nodemon rather than node for local dev
     command: nodemon server.js
@@ -43,6 +46,7 @@ services:
       - back-tier
 
   result-ui:
+    image: cr.alusta.cloud/demo/result-ui:latest
     build: ../../result-ui
     depends_on:
       result:
@@ -54,6 +58,7 @@ services:
     restart: unless-stopped
 
   worker:
+    image: cr.alusta.cloud/demo/worker:latest
     build:
       context: ../../worker
       dockerfile: Dockerfile.${LANGUAGE:-dotnet}
