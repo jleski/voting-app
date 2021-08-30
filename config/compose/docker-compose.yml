@@ -61,7 +61,7 @@ services:
     image: cr.alusta.cloud/demo/worker:latest
     build:
       context: ../../worker
-      dockerfile: Dockerfile.${LANGUAGE:-dotnet}
+      dockerfile: Dockerfile.${LANGUAGE:-go}
     depends_on:
       redis:
         condition: service_healthy
